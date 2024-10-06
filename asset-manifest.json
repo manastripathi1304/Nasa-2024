@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Nasa-2024/static/css/main.a5052789.css",
+    "main.js": "/Nasa-2024/static/js/main.561ba166.js",
+    "static/js/453.1374709b.chunk.js": "/Nasa-2024/static/js/453.1374709b.chunk.js",
+    "index.html": "/Nasa-2024/index.html",
+    "main.a5052789.css.map": "/Nasa-2024/static/css/main.a5052789.css.map",
+    "main.561ba166.js.map": "/Nasa-2024/static/js/main.561ba166.js.map",
+    "453.1374709b.chunk.js.map": "/Nasa-2024/static/js/453.1374709b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a5052789.css",
+    "static/js/main.561ba166.js"
+  ]
+}
