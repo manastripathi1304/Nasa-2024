@@ -5,6 +5,7 @@ const VideoComponent = () => {
   const [currentVideo, setCurrentVideo] = useState(1);
   const [isDeployButtonVisible, setIsDeployButtonVisible] = useState(false);
   const [isJWSTButtonVisible, setIsJWSTButtonVisible] = useState(false);
+  const [isCaptureButtonVisible, setIsCaptureButtonVisible] = useState(false);
   const videoRef = useRef(null);
 
   const handleVideo1Ended = () => {
@@ -33,11 +34,26 @@ const VideoComponent = () => {
       videoRef.current.pause(); // Pause Video 5 at the last frame
     }
     setIsJWSTButtonVisible(true); // Show JWST button
+    setIsCaptureButtonVisible(true); // Show Capture button
   };
 
   const handleJWSTButtonClick = () => {
-    setIsJWSTButtonVisible(false); // Hide the button
+    setIsJWSTButtonVisible(false); // Hide JWST button
+    setIsCaptureButtonVisible(true); // Show Capture button
     setCurrentVideo(6); // Start playing Video 6
+  };
+
+  const handleCaptureButtonClick = () => {
+    setIsCaptureButtonVisible(false); // Hide Capture button
+    setCurrentVideo(7); // Start playing Video 7
+  };
+
+  const handleVideo6Ended = () => {
+    setIsCaptureButtonVisible(true); // Show Capture button after Video 6 ends
+  };
+
+  const handleVideo7Ended = () => {
+    setIsJWSTButtonVisible(true); // Show JWST button after Video 7 ends
   };
 
   useEffect(() => {
@@ -95,7 +111,6 @@ const VideoComponent = () => {
           ref={videoRef}
           className="video fade-in full-screen"
           autoPlay
-          loop
           onPlay={handleVideo4EndedOnce}
           playsInline
         >
@@ -114,7 +129,7 @@ const VideoComponent = () => {
           ref={videoRef}
           className="video fade-in full-screen"
           autoPlay
-          onEnded={handleVideo5Ended} // Pause and show JWST button when Video 5 ends
+          onEnded={handleVideo5Ended}
           playsInline
         >
           <source src="/videos/video5.mp4" type="video/mp4" />
@@ -123,7 +138,13 @@ const VideoComponent = () => {
 
       {isJWSTButtonVisible && (
         <button className="jwst-button" onClick={handleJWSTButtonClick}>
-          JWST trajectory
+          JWST Trajectory
+        </button>
+      )}
+
+      {isCaptureButtonVisible && (
+        <button className="capture-button" onClick={handleCaptureButtonClick}>
+          Capture Image
         </button>
       )}
 
@@ -132,6 +153,7 @@ const VideoComponent = () => {
           ref={videoRef}
           className="video fade-in full-screen"
           autoPlay
+          onEnded={handleVideo6Ended}
           playsInline
         >
           <source src="/videos/video6.mp4" type="video/mp4" />
@@ -143,6 +165,7 @@ const VideoComponent = () => {
           ref={videoRef}
           className="video fade-in full-screen"
           autoPlay
+          onEnded={handleVideo7Ended}
           playsInline
         >
           <source src="/videos/video7.mp4" type="video/mp4" />

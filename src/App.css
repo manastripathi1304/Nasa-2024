@@ -14,7 +14,7 @@
 .video {
   width: 100%;
   height: auto;
-  transition: opacity 1s ease-in-out; /* Smooth transition for video */
+  transition: opacity 1s ease-in-out;
   object-fit: cover;
 }
 
@@ -30,7 +30,7 @@
 
 .fade-in {
   opacity: 0;
-  animation: fadeIn 1s forwards; /* Smooth fade-in for video */
+  animation: fadeIn 1s forwards;
 }
 
 @keyframes fadeIn {
@@ -55,29 +55,30 @@
   z-index: 20;
   text-align: center;
   line-height: 60px;
-  transition: background-color 0.3s ease, color 0.3s ease, opacity 0.5s ease; /* Added opacity transition */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .launch-button {
-  top: 50%;
+  top: 80%; /* Adjust to be visible after Video 1 */
   left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.deploy-button,
-.jwst-button,
-.capture-button {
-  bottom: 50px;
-  left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, 0);
 }
 
 .deploy-button {
-  bottom: 120px; /* Move Deploy button up to make space */
+  top: 80%; /* Adjust to be visible after Video 3 */
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
-.jwst-button {
-  bottom: 190px; /* Move JWST button up to make space */
+.jwst-button{
+  bottom: 100px; /* Adjust to be visible after Video 5 */
+  left: 20%;
+  transform: translateX(-50%);
+}
+.capture-button {
+  bottom: 100px; /* Adjust to be visible after Video 5 */
+  left: 80%;
+  transform: translateX(-50%);
 }
 
 .launch-button:hover,
@@ -94,4 +95,18 @@
   outline: none;
 }
 
-/* Additional label styles remain unchanged */
+@media (max-width: 600px) {
+  .video {
+    max-width: 100%;
+  }
+
+  .launch-button,
+  .deploy-button,
+  .jwst-button,
+  .capture-button {
+    font-size: 14px;
+    width: 180px;
+    height: 50px;
+    line-height: 50px;
+  }
+}
