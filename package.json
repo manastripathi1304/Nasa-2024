@@ -1,4 +1,5 @@
 {
+  "homepage": "https://manastripathi1304.github.io/Nasa-2024"
   "name": "jwst",
   "version": "0.1.0",
   "private": true,
@@ -13,6 +14,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",  // Runs build before deploy
+   "deploy": "gh-pages -d build", // Deploys the build folder
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
